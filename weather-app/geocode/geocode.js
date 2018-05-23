@@ -1,8 +1,9 @@
 const request = require('request');
+const config = require('./../configuration/configManager');
 
-var geocodeAddress = (address, key, callback) => {
+var geocodeAddress = (address, callback) => {
     request({
-        url: `https://maps.google.com/maps/api/geocode/json?key=${key}&address=${encodeURIComponent(address)}`,
+        url: `https://maps.google.com/maps/api/geocode/json?key=${config.getGoogleApiKey()}&address=${encodeURIComponent(address)}`,
         json: true
     }, (error, response, body) => {
         if (error) {
@@ -19,6 +20,5 @@ var geocodeAddress = (address, key, callback) => {
         }
     });
 };
-
 
 module.exports.geocodeAddress = geocodeAddress;
