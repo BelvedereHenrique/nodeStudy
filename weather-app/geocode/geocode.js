@@ -1,5 +1,5 @@
-const request = require('request');
-const config = require('./../configuration/configManager');
+    const request = require('request');
+    const config = require('./../configuration/configManager');
 
 var geocodeAddress = (address, callback) => {
     request({
